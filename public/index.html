@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.
     0">
-    <title>All-in-One CPU Scheduling Simulator</title>
+    <title>CPU Scheduling Simulator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -14,18 +14,24 @@
 <body class="bg-gray-100 dark:bg-gray-900 min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-7xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8 center-content">
         <header class="text-center mb-6 relative">
-            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">CPU Scheduling Algorithm Calculator</h1>
-            <p class="text-gray-500 dark:text-gray-400 mt-2">Select an algorithm, enter process details, and visualize
-                the schedule step-by-step.</p>
-            <div class="absolute top-0 right-0">
-                <label for="dark-mode-toggle" class="flex items-center cursor-pointer">
-                    <div class="relative">
-                        <input type="checkbox" id="dark-mode-toggle" class="sr-only">
-                        <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-                        <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-                    </div>
-                    <div class="ml-3 text-gray-700 dark:text-gray-300 font-medium">Night Mode</div>
-                </label>
+            <div class="flex flex-col md:block">
+                <div class="md:absolute md:top-4 md:right-4 flex justify-center md:justify-end order-2 md:order-none z-10">
+                    <label for="dark-mode-toggle" class="flex items-center cursor-pointer">
+                        <div class="relative w-10 h-6 flex items-center">
+                            <input type="checkbox" id="dark-mode-toggle" class="sr-only">
+                            <div class="block bg-gray-600 w-10 h-6 rounded-full transition-colors"></div>
+                            <div class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 flex items-center justify-center">
+                                <!-- Moon Icon (dark) -->
+                                <svg id="moon-icon" class="w-3 h-3 text-gray-600 dark:text-yellow-300 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                                <!-- Sun Icon (light) -->
+                                <svg id="sun-icon" class="w-3 h-3 text-yellow-400 dark:text-gray-600 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15a5 5 0 100-10 5 5 0 000 10zm0 2a7 7 0 110-14 7 7 0 010 14zm0-16a1 1 0 011 1v2a1 1 0 11-2 0V2a1 1 0 011-1zm0 16a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zm8-8a1 1 0 01-1 1h-2a1 1 0 110-2h2a1 1 0 011 1zm-16 0a1 1 0 01-1 1H2a1 1 0 110-2h2a1 1 0 011 1zm12.071 5.071a1 1 0 010 1.415l-1.414 1.414a1 1 0 11-1.415-1.415l1.415-1.414a1 1 0 011.414 0zm-10.142 0a1 1 0 010 1.415L4.515 17.9a1 1 0 11-1.415-1.415l1.415-1.414a1 1 0 011.414 0zm10.142-10.142a1 1 0 00-1.415 0l-1.414 1.415a1 1 0 101.415 1.414l1.414-1.415a1 1 0 000-1.414zm-10.142 0a1 1 0 00-1.415 0L2.1 4.515a1 1 0 101.415 1.415l1.414-1.415a1 1 0 000-1.414z"/></svg>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 order-1 md:order-none">CPU Scheduling Algorithm Simulator</h1>
+                <p class="text-gray-500 dark:text-gray-400 mt-2 order-3 md:order-none">Select an algorithm, enter process details, and visualize
+                    the schedule step-by-step.</p>
             </div>
         </header>
 
@@ -180,6 +186,26 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+    // Toggle sun/moon icon based on dark mode
+    function updateThemeIcon() {
+        const isDark = document.documentElement.classList.contains('dark');
+        document.getElementById('moon-icon').style.display = isDark ? 'block' : 'none';
+        document.getElementById('sun-icon').style.display = isDark ? 'none' : 'block';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.getElementById('dark-mode-toggle');
+        // Initial icon state
+        updateThemeIcon();
+        // Listen for theme changes
+        toggle.addEventListener('change', function() {
+            document.documentElement.classList.toggle('dark');
+            updateThemeIcon();
+        });
+        // If using system preference, update icon on system change
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateThemeIcon);
+    });
+    </script>
 </body>
 
 </html>
