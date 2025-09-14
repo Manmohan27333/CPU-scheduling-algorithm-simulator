@@ -1,0 +1,193 @@
+html:not(.dark) body {
+    background: linear-gradient(135deg, #d4d4d4 0%, #e0e0e0 60%, #f8f8f8 100%) !important;
+    color: #222 !important;
+}
+
+html:not(.dark) .center-content {
+    background: linear-gradient(135deg, #f2f1f1 0%, #e1e1e1 100%) !important;
+    box-shadow: 0 4px 32px 0 rgba(160, 160, 160, 0.12), 0 1.5px 4px 0 rgba(192, 192, 192, 0.10);
+    border: 1px solid #bcbcbc !important;
+}
+
+html:not(.dark) .bg-gray-100 {
+    background-color: #e5e5e5 !important;
+}
+
+html:not(.dark) .bg-gray-50 {
+    background-color: #f0f0f0 !important;
+}
+
+html:not(.dark) .bg-white {
+    background-color: #f8f8f8 !important;
+}
+
+
+html:not(.dark) .text-gray-800,
+html:not(.dark) .text-gray-700,
+html:not(.dark) .text-gray-500,
+html:not(.dark) .text-gray-900,
+html:not(.dark) .dark\:text-gray-100,
+html:not(.dark) .dark\:text-gray-200,
+html:not(.dark) .dark\:text-gray-300,
+html:not(.dark) .dark\:text-gray-400 {
+    color: #111 !important;
+}
+
+html:not(.dark) input,
+html:not(.dark) textarea {
+    background-color: #fff !important;
+    color: #222 !important;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+html.dark body {
+    background-color: #111827 !important;
+    color: #fff !important;
+}
+
+html.dark .bg-white {
+    background-color: #1a1a1a !important;
+}
+
+html.dark .text-gray-800,
+html.dark .text-gray-700,
+html.dark .text-gray-500 {
+    color: #fff !important;
+}
+
+html.dark .bg-gray-100 {
+    background-color: #222 !important;
+}
+
+html.dark .bg-gray-50 {
+    background-color: #222 !important;
+}
+
+html.dark .border-gray-200 {
+    border-color: #444 !important;
+}
+
+html.dark .bg-gray-900 {
+    background-color: #111827 !important;
+}
+
+html.dark .bg-gray-800 {
+    background-color: #1a1a1a !important;
+}
+
+html.dark .dark\:text-gray-100 {
+    color: #fff !important;
+}
+
+html.dark .dark\:text-gray-200 {
+    color: #e5e7eb !important;
+}
+
+html.dark .dark\:text-gray-300 {
+    color: #d1d5db !important;
+}
+
+html.dark .dark\:text-gray-400 {
+    color: #9ca3af !important;
+}
+
+html.dark .dark\:bg-gray-700 {
+    background-color: #222 !important;
+}
+
+html.dark .dark\:bg-gray-900 {
+    background-color: #111827 !important;
+}
+
+html.dark .dark\:bg-gray-800 {
+    background-color: #1a1a1a !important;
+}
+
+
+.gantt-chart-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    border-radius: 0.5rem;
+    background: linear-gradient(90deg, #e0e0e0 0%, #c0c0c0 100%) !important;
+}
+
+.gantt-block {
+    text-align: center;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-right: 2px solid #fff;
+    color: white !important;
+    font-weight: 600;
+    min-width: 30px;
+}
+
+.gantt-block:last-child {
+    border-right: none;
+}
+
+.time-label-container {
+    display: flex;
+    position: relative;
+    padding-left: 2px;
+}
+
+.time-label {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: white !important;
+}
+
+.step-card {
+    min-width: 200px;
+    scroll-snap-align: start;
+}
+
+.scroll-container {
+    scroll-snap-type: x mandatory;
+}
+
+.sortable:hover {
+    cursor: pointer;
+    background-color: #e5e7eb;
+}
+
+html.dark .sortable:hover {
+    background-color: #374151;
+}
+
+.sort-asc::after {
+    content: ' ▲';
+}
+
+.sort-desc::after {
+    content: ' ▼';
+}
+
+#dark-mode-toggle:checked~.dot {
+    transform: translateX(1.5rem);
+}
+
+#dark-mode-toggle:checked+.block {
+    background-color: #3b82f6;
+}
+
+.gemini-analysis p {
+    margin-bottom: 1rem;
+}
+
+.gemini-analysis h4 {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
