@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- Gemini API Call Function ---
     async function callGemini(payload) {
-        const apiUrl = "http://localhost:3000/api/gemini";
+        const apiUrl = "https://cpu-scheduling-algorithm-simulator.onrender.com/api/gemini";
         let retries = 3;
         let delay = 1000;
         while (retries > 0) {
